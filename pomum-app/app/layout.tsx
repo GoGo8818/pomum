@@ -1,9 +1,8 @@
 import "./globals.css";
 
 export const metadata = {
-  title: "Pomum — Ancient ingredients, modern rituals",
-  description:
-    "Håndplukket safran, dadler og granateple fra Persias eldgamle matkultur — foredlet for et nordisk liv.",
+  title: "Pomum — Mer info kommer snart",
+  description: "Pomum lanseres snart. Følg med på pomum.no.",
 };
 
 export default function RootLayout({

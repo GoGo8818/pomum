@@ -1,55 +1,68 @@
-"use client";
-
-import { useEffect, useRef } from "react";
-import { pageMarkup } from "./markup";
+const logoSvg = (
+  <svg
+    className="coming-soon__logo"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="-120 -120 9011.104 1640"
+    role="img"
+    aria-label="Pomum"
+  >
+    <g transform="translate(0,1400) scale(1,-1)">
+      <path
+        d="M1393 881Q1393 748 1325.0 650.5Q1257 553 1132.0 499.5Q1007 446 834 446Q721 446 629.0 471.0Q537 496 466 539L480 650Q519 624 557.0 607.5Q595 591 637.0 582.5Q679 574 728 574Q811 574 877.0 609.5Q943 645 981.5 716.0Q1020 787 1020 891Q1020 1007 975.5 1092.5Q931 1178 852.0 1225.0Q773 1272 669 1272H618V207Q618 180 630.5 164.0Q643 148 670 141L741 126Q768 119 780.0 103.5Q792 88 792 61Q792 33 774.0 16.5Q756 0 718 0H164Q126 0 108.0 16.5Q90 33 90 61Q90 108 137 127L184 141Q209 150 222.0 165.0Q235 180 235 207V1192Q235 1219 222.0 1234.5Q209 1250 184 1259L137 1273Q90 1292 90 1339Q90 1368 108.0 1384.0Q126 1400 164 1400H680Q907 1400 1066.5 1333.0Q1226 1266 1309.5 1148.5Q1393 1031 1393 881Z"
+        fill="#271B12"
+      />
+    </g>
+    <g transform="translate(1520,-14.0) scale(23.8)">
+      <path
+        d="M30 8 C17 8 9 18 9 30 C9 42 17 50 30 52 C43 50 51 42 51 30 C51 18 43 8 30 8Z"
+        fill="#F23D74"
+        stroke="#7A0E24"
+        strokeWidth="3"
+      />
+      <path
+        d="M23 8 C20 3 25 1 28 5"
+        stroke="#6FA05A"
+        strokeWidth="3"
+        strokeLinecap="round"
+        fill="none"
+      />
+      <circle cx="24" cy="30" r="4" fill="#F0A93A" />
+      <circle cx="34" cy="26" r="4" fill="#FBF3E6" />
+      <circle cx="37" cy="36" r="4" fill="#7A0E24" />
+    </g>
+    <circle cx="3088.0" cy="1262.896" r="97.10400000000001" fill="#F0A93A" />
+    <g transform="translate(3355.104,1400) scale(1,-1)">
+      <path
+        d="M1021 419 894 395 1231 1281Q1257 1349 1289.0 1374.5Q1321 1400 1379 1400H1712Q1751 1400 1769.5 1384.0Q1788 1368 1788 1339Q1788 1314 1775.5 1298.0Q1763 1282 1740 1273L1696 1258Q1665 1248 1653.0 1230.0Q1641 1212 1643 1173L1712 217Q1714 180 1725.5 165.5Q1737 151 1763 141L1807 127Q1829 119 1840.0 103.5Q1851 88 1851 64Q1851 36 1833.0 18.0Q1815 0 1776 0H1263Q1224 0 1205.5 16.5Q1187 33 1187 61Q1187 84 1198.0 100.5Q1209 117 1235 127L1280 141Q1310 152 1322.5 168.0Q1335 184 1333 217L1255 1225L1365 1233L956 150Q932 85 908.0 66.0Q884 47 849 47Q824 47 804.0 53.5Q784 60 766.0 83.5Q748 107 728 156L314 1200L417 1224L337 245Q334 201 356.0 177.5Q378 154 415 137L454 120Q471 112 480.0 98.5Q489 85 489 63Q489 35 471.0 17.5Q453 0 415 0H112Q73 0 55.0 16.5Q37 33 37 61Q37 89 51.5 104.0Q66 119 90 130L121 141Q153 154 173.5 178.0Q194 202 198 246L272 1148Q276 1199 263.5 1223.5Q251 1248 219 1258L176 1272Q152 1282 139.5 1297.5Q127 1313 127 1339Q127 1400 203 1400H534Q589 1400 621.0 1375.5Q653 1351 679 1284Z"
+        fill="#271B12"
+      />
+    </g>
+    <g transform="translate(5308.103999999999,1400) scale(1,-1)">
+      <path
+        d="M1184 610 1148 1149Q1145 1197 1126.5 1223.0Q1108 1249 1069 1259L1030 1268Q996 1278 981.0 1294.5Q966 1311 966 1338Q966 1366 984.5 1383.0Q1003 1400 1036 1400H1402Q1436 1400 1454.5 1383.0Q1473 1366 1473 1338Q1473 1310 1456.5 1294.5Q1440 1279 1407 1269L1371 1260Q1322 1246 1303.0 1216.5Q1284 1187 1288 1139L1326 613Q1331 561 1333.5 511.0Q1336 461 1336 407Q1337 280 1276.5 180.0Q1216 80 1090.0 22.0Q964 -36 769 -36Q577 -36 447.5 18.0Q318 72 253.0 171.0Q188 270 189 406Q189 429 191.0 465.5Q193 502 196.0 548.0Q199 594 202 647L235 1190Q237 1220 224.0 1236.0Q211 1252 176 1259L131 1268Q66 1284 66 1338Q66 1366 84.5 1383.0Q103 1400 137 1400H712Q747 1400 765.0 1383.0Q783 1366 783 1338Q783 1310 767.5 1294.0Q752 1278 718 1269L672 1259Q645 1253 632.5 1237.5Q620 1222 618 1192L585 642Q582 578 580.5 524.5Q579 471 578 432Q577 265 654.5 188.5Q732 112 870 112Q971 112 1043.5 148.0Q1116 184 1154.5 251.5Q1193 319 1192 412Q1191 481 1188.5 525.5Q1186 570 1184 610Z"
+        fill="#271B12"
+      />
+    </g>
+    <g transform="translate(6873.103999999999,1400) scale(1,-1)">
+      <path
+        d="M1021 419 894 395 1231 1281Q1257 1349 1289.0 1374.5Q1321 1400 1379 1400H1712Q1751 1400 1769.5 1384.0Q1788 1368 1788 1339Q1788 1314 1775.5 1298.0Q1763 1282 1740 1273L1696 1258Q1665 1248 1653.0 1230.0Q1641 1212 1643 1173L1712 217Q1714 180 1725.5 165.5Q1737 151 1763 141L1807 127Q1829 119 1840.0 103.5Q1851 88 1851 64Q1851 36 1833.0 18.0Q1815 0 1776 0H1263Q1224 0 1205.5 16.5Q1187 33 1187 61Q1187 84 1198.0 100.5Q1209 117 1235 127L1280 141Q1310 152 1322.5 168.0Q1335 184 1333 217L1255 1225L1365 1233L956 150Q932 85 908.0 66.0Q884 47 849 47Q824 47 804.0 53.5Q784 60 766.0 83.5Q748 107 728 156L314 1200L417 1224L337 245Q334 201 356.0 177.5Q378 154 415 137L454 120Q471 112 480.0 98.5Q489 85 489 63Q489 35 471.0 17.5Q453 0 415 0H112Q73 0 55.0 16.5Q37 33 37 61Q37 89 51.5 104.0Q66 119 90 130L121 141Q153 154 173.5 178.0Q194 202 198 246L272 1148Q276 1199 263.5 1223.5Q251 1248 219 1258L176 1272Q152 1282 139.5 1297.5Q127 1313 127 1339Q127 1400 203 1400H534Q589 1400 621.0 1375.5Q653 1351 679 1284Z"
+        fill="#271B12"
+      />
+    </g>
+  </svg>
+);
 
 export default function Page() {
-  const rootRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const root = rootRef.current;
-    if (!root) return;
-
-    // Scroll-reveal animation for elements tagged with .reveal
-    const io = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("in");
-            io.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.15 }
-    );
-    root.querySelectorAll(".reveal").forEach((el) => io.observe(el));
-
-    // Mobile burger menu toggle
-    const burger = root.querySelector<HTMLElement>(".burger");
-    const navLinks = root.querySelector<HTMLElement>(".nav-links");
-    const onBurgerClick = () => {
-      if (!navLinks) return;
-      const open = navLinks.style.display === "flex";
-      navLinks.style.display = open ? "none" : "flex";
-      navLinks.style.flexDirection = "column";
-      navLinks.style.position = "absolute";
-      navLinks.style.top = "64px";
-      navLinks.style.left = "0";
-      navLinks.style.right = "0";
-      navLinks.style.background = "#FBF3E6";
-      navLinks.style.padding = "20px 32px";
-      navLinks.style.gap = "18px";
-      navLinks.style.borderBottom = "1px solid rgba(39,27,18,0.12)";
-    };
-    burger?.addEventListener("click", onBurgerClick);
-
-    return () => {
-      io.disconnect();
-      burger?.removeEventListener("click", onBurgerClick);
-    };
-  }, []);
-
   return (
-    <div ref={rootRef} dangerouslySetInnerHTML={{ __html: pageMarkup }} />
+    <main className="coming-soon">
+      <div className="coming-soon__inner">
+        {logoSvg}
+        <p className="coming-soon__eyebrow">Ancient Superfoods</p>
+        <h1 className="coming-soon__title">Mer info kommer snart.</h1>
+        <p className="coming-soon__lede">
+          Vi jobber med noe spennende. Følg med — pomum.no åpner snart.
+        </p>
+      </div>
+    </main>
   );
 }
