@@ -57,7 +57,7 @@ export default function Page() {
     <main className="coming-soon">
       <div className="coming-soon__inner">
         {logoSvg}
-        <p className="coming-soon__eyebrow">Pure Yum</p>
+        <p className="coming-soon__">Pure Yum</p>
         <h1 className="coming-soon__title">Mer info kommer snart.</h1>
         <p className="coming-soon__lede">
           Vi jobber med noe spennende. Følg med — pomum.no åpner snart.
