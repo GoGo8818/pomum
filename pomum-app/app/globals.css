@@ -61,9 +61,6 @@ body {
   font-weight: 500;
 }
 
-.coming-soon__eyebrow::before {
-  content: "✦ ";
-  color: var(--gold-deep);
 }
 
 .coming-soon__title {
