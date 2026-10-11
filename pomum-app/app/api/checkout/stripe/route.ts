@@ -1,9 +1,12 @@
 import { NextResponse } from "next/server";
 import { getStripe } from "@/lib/stripe";
 import { buildOrder, parseCustomer, orderSummaryText } from "@/lib/order";
-import { siteUrl, EXPECTED_SHIPPING } from "@/lib/config";
+import { siteUrl, EXPECTED_SHIPPING, PAYMENTS_OPEN } from "@/lib/config";
 
 export async function POST(req: Request) {
+  if (!PAYMENTS_OPEN) {
+    return NextResponse.json({ error: "Bestilling er ikke åpnet ennå." }, { status: 403 });
+  }
   try {
     const body = await req.json();
     const order = buildOrder(body.items);

@@ -5,6 +5,7 @@ import { useCart } from "@/components/CartProvider";
 import { getProduct, formatKr } from "@/lib/products";
 import { ProductImage } from "@/components/ProductImage";
 import { Totals } from "@/components/OrderSummary";
+import { PAYMENTS_OPEN } from "@/lib/config";
 
 export default function CartPage() {
   const { items, ready, setQty, remove } = useCart();
@@ -48,7 +49,7 @@ export default function CartPage() {
       })}
       <Totals items={valid} />
       <Link href="/kasse" className="btn btn-block" style={{ marginTop: 24 }}>Gå til kassen</Link>
-      <p className="center small muted" style={{ marginTop: 12 }}>Betal med Vipps eller kort</p>
+      <p className="center small muted" style={{ marginTop: 12 }}>{PAYMENTS_OPEN ? "Betal med Vipps eller kort" : "Bestilling åpner snart – du kan reservere allerede nå"}</p>
     </div>
   );
 }

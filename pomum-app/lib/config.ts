@@ -7,6 +7,9 @@ export const SHOP = site.company;
 
 export const VAT_REGISTERED: boolean = !!site.shop.vatRegistered;
 
+/** Av = kassen viser en melding i stedet for betalingsknapper (f.eks. før Stripe/Vipps er klare). */
+export const PAYMENTS_OPEN: boolean = !!site.shop.paymentsOpen;
+
 export const SHIPPING_ORE = Math.round(Number(site.shop.shippingKr) * 100);
 export const FREE_SHIPPING_THRESHOLD_ORE = Math.round(Number(site.shop.freeShippingFromKr) * 100);
 

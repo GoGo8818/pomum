@@ -11,6 +11,8 @@
     "shippingKr": 79,
     "freeShippingFromKr": 500,
     "vatRegistered": false,
+    "paymentsOpen": false,
+    "paymentsClosedMessage": "Bestilling åpner om noen dager. Send oss en e-post, så holder vi av varene til deg og gir beskjed så snart du kan betale.",
     "banner": "Forhåndsbestill nå · sendes {sending} · gratis frakt over 500 kr"
   },
   "home": {

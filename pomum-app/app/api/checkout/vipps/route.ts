@@ -2,9 +2,12 @@ import { NextResponse } from "next/server";
 import { cookies } from "next/headers";
 import { buildOrder, parseCustomer, orderSummaryText } from "@/lib/order";
 import { createVippsPayment, newReference } from "@/lib/vipps";
-import { siteUrl } from "@/lib/config";
+import { siteUrl, PAYMENTS_OPEN } from "@/lib/config";
 
 export async function POST(req: Request) {
+  if (!PAYMENTS_OPEN) {
+    return NextResponse.json({ error: "Bestilling er ikke åpnet ennå." }, { status: 403 });
+  }
   try {
     const body = await req.json();
     const order = buildOrder(body.items);

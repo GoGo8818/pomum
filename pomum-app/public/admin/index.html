@@ -13,7 +13,7 @@
   <script>
     // Redigeringspanel for Pomum. Endringer lagres i GitHub (grenen under), og nettsiden
     // bygges automatisk på nytt av Vercel. Det tar omtrent ett minutt før endringen vises.
-    var BRANCH = "nettbutikk"; // bytt til "main" når butikken går live på pomum.no
+    var BRANCH = "main";
 
     var productFields = [
       { label: "Vis i butikken", name: "active", widget: "boolean", default: true },
@@ -97,6 +97,9 @@
                   { label: "Stripe øverst på siden", name: "banner", widget: "string", hint: "Skriv {sending} for å vise sendedatoen." },
                   { label: "Fraktpris (kr)", name: "shippingKr", widget: "number", value_type: "float" },
                   { label: "Gratis frakt fra (kr)", name: "freeShippingFromKr", widget: "number", value_type: "float" },
+                  { label: "Betaling er åpen", name: "paymentsOpen", widget: "boolean",
+                    hint: "Slå på når Stripe og/eller Vipps er satt opp. Når den er av, viser kassen meldingen under i stedet for betalingsknapper." },
+                  { label: "Melding i kassen når betaling er stengt", name: "paymentsClosedMessage", widget: "text" },
                   { label: "Selskapet er mva-registrert", name: "vatRegistered", widget: "boolean",
                     hint: "Slå på når SMILGO AS er registrert. Da vises «inkl. mva» på priser og kvitteringer." }
                 ]},

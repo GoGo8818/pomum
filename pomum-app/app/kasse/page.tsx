@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { useCart } from "@/components/CartProvider";
 import { getProduct, formatKr } from "@/lib/products";
 import { Totals } from "@/components/OrderSummary";
-import { EXPECTED_SHIPPING } from "@/lib/config";
+import { EXPECTED_SHIPPING, PAYMENTS_OPEN, SITE, SHOP } from "@/lib/config";
 
 const empty = { name: "", email: "", phone: "", address: "", postcode: "", city: "" };
 
@@ -61,6 +61,46 @@ export default function CheckoutPage() {
       <div className="wrap page narrow center">
         <h1>Handlekurven er tom</h1>
         <Link href="/produkter" className="btn">Se produktene</Link>
+      </div>
+    );
+  }
+
+  if (!PAYMENTS_OPEN) {
+    const lines = valid.map((i) => {
+      const p = getProduct(i.slug)!;
+      return `${i.qty} x ${p.name} ${p.size}`;
+    });
+    const subject = "Reservasjon fra pomum.no";
+    const body = `Hei!\n\nJeg vil gjerne reservere:\n${lines.join("\n")}\n\nNavn:\nAdresse:\nMobil:\n`;
+    const mailto = `mailto:${SHOP.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    return (
+      <div className="wrap page">
+        <h1>Kasse</h1>
+        <div className="checkout-grid">
+          <div>
+            <span className="pill">Åpner snart</span>
+            <h2 style={{ marginTop: 16 }}>Reserver nå, betal senere.</h2>
+            <p className="lead">{SITE.shop.paymentsClosedMessage}</p>
+            <p style={{ marginTop: 24 }}>
+              <a href={mailto} className="btn">Reserver på e-post</a>
+            </p>
+            <p className="muted small">E-posten fylles ut med varene i kurven din. Du betaler ingenting nå.</p>
+          </div>
+          <aside className="summary-box">
+            <h3>Din handlekurv</h3>
+            {valid.map((i) => {
+              const p = getProduct(i.slug)!;
+              return (
+                <div key={i.slug} style={{ display: "flex", justifyContent: "space-between", gap: 12, padding: "6px 0" }}>
+                  <span>{i.qty} × {p.name} <span className="muted small">{p.size}</span></span>
+                  <span>{formatKr(p.priceOre * i.qty)}</span>
+                </div>
+              );
+            })}
+            <Totals items={valid} />
+            <Link href="/handlekurv" className="small" style={{ display: "inline-block", marginTop: 12 }}>Endre handlekurv</Link>
+          </aside>
+        </div>
       </div>
     );
   }
