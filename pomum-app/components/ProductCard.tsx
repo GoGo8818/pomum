@@ -1,14 +1,14 @@
 import Link from "next/link";
 import type { Product } from "@/lib/products";
 import { formatKr } from "@/lib/products";
-import { ProductArt } from "./ProductArt";
+import { ProductImage } from "./ProductImage";
 import { AddToCart } from "./AddToCart";
 
 export function ProductCard({ product }: { product: Product }) {
   return (
     <article className="card">
       <Link href={`/produkter/${product.slug}`} className="card-link">
-        <ProductArt kind={product.illustration} />
+        <ProductImage product={product} />
       </Link>
       <div className="card-body">
         <div className="card-meta">

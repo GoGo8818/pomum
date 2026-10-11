@@ -1,0 +1,44 @@
+{
+  "products": [
+    {
+      "slug": "safran",
+      "active": true,
+      "name": "Safran",
+      "tagline": "Gull, i tråder",
+      "size": "1 g",
+      "price": 249,
+      "short": "Noen få tråder, og risen blir gyllen. Hele safrantråder med dyp farge og en duft som minner om honning og høy.",
+      "description": "Safran er verdens mest arbeidskrevende krydder. Hver blomst gir bare tre tråder, og alt plukkes for hånd tidlig om morgenen i den korte høstsesongen.\n\nVi har valgt hele tråder fremfor pulver, så du ser hva du får. Safranen kommer via vår samarbeidspartner Raya. Én boks holder lenge: 6–8 tråder er nok til en hel gryte.",
+      "ingredients": "100 % safran (Crocus sativus), hele tråder.",
+      "allergens": "Ingen kjente allergener.",
+      "origin": "Iran",
+      "storage": "Oppbevares tørt, mørkt og lufttett i romtemperatur.",
+      "usage": [
+        "Knus 6–8 tråder i en morter, trekk i 2 ss varmt vann i 10 minutter.",
+        "Tilsett i ris, gryter, kaker eller varm melk."
+      ],
+      "image": "",
+      "illustration": "saffron"
+    },
+    {
+      "slug": "granateplemelasse",
+      "active": true,
+      "name": "Granateplemelasse",
+      "tagline": "Syrlig. Søt. Litt avhengighetsskapende.",
+      "size": "250 ml",
+      "price": 169,
+      "short": "Granateple kokt ned til en tykk, rubinrød sirup. Den hemmelige ingrediensen kokkene ikke forteller om.",
+      "description": "Granateplemelasse er en klassiker i kjøkken rundt Middelhavet og Midtøsten. Smaken er syrlig først, så rund og fruktig, med en mørk sødme som minner om balsamico.\n\nUten tilsatt sukker, og kommer via vår samarbeidspartner Raya. Drypp den over burrata, halloumi, grillede grønnsaker eller vaniljeis.",
+      "ingredients": "Konsentrert granateplejuice.",
+      "allergens": "Ingen kjente allergener.",
+      "origin": "Iran",
+      "storage": "Oppbevares kjølig etter åpning.",
+      "usage": [
+        "Visp 1 ss melasse med 3 ss olivenolje, salt og pepper til en dressing.",
+        "Pensle over kylling, laks eller halloumi rett før den er ferdig."
+      ],
+      "image": "",
+      "illustration": "molasses"
+    }
+  ]
+}

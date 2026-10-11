@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { SHOP, EXPECTED_SHIPPING } from "@/lib/config";
+import { SHOP, EXPECTED_SHIPPING, SHIPPING_ORE, FREE_SHIPPING_THRESHOLD_ORE } from "@/lib/config";
+import { formatKr } from "@/lib/products";
 
 export const metadata: Metadata = { title: "Salgsvilkår" };
 
@@ -25,8 +26,8 @@ export default function TermsPage() {
 
       <h2>3. Pris</h2>
       <p>
-        Oppgitt pris er totalprisen kjøper skal betale, inkludert merverdiavgift. Frakt er 79 kr per bestilling og
-        gratis for bestillinger over 500 kr. Fraktkostnaden vises i handlekurven før kjøpet bekreftes.
+        Oppgitt pris er totalprisen kjøper skal betale, inkludert eventuelle avgifter. Frakt er {formatKr(SHIPPING_ORE)} per bestilling og
+        gratis for bestillinger over {formatKr(FREE_SHIPPING_THRESHOLD_ORE)}. Fraktkostnaden vises i handlekurven før kjøpet bekreftes.
       </p>
 
       <h2>4. Avtaleinngåelse og forhåndsbestilling</h2>

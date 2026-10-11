@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { Logo } from "./Logo";
 import { useCart } from "./CartProvider";
-import { EXPECTED_SHIPPING } from "@/lib/config";
+import { SITE, fill } from "@/lib/config";
 
 export function Header() {
   const { count, ready } = useCart();
@@ -12,12 +12,12 @@ export function Header() {
   return (
     <>
       <div className="banner">
-        Forhåndsbestill nå · sendes {EXPECTED_SHIPPING} · gratis frakt over 500 kr
+        {fill(SITE.shop.banner)}
       </div>
       <header className="header">
         <div className="wrap header-inner">
           <Link href="/" className="logo-link" onClick={() => setOpen(false)}>
-            <Logo />
+            <Logo height={30} />
           </Link>
           <nav className={`nav ${open ? "nav-open" : ""}`} onClick={() => setOpen(false)}>
             <Link href="/produkter">Produkter</Link>

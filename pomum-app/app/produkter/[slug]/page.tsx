@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { products, getProduct, formatKr } from "@/lib/products";
-import { ProductArt } from "@/components/ProductArt";
+import { ProductImage } from "@/components/ProductImage";
 import { AddToCart } from "@/components/AddToCart";
-import { EXPECTED_SHIPPING } from "@/lib/config";
+import { EXPECTED_SHIPPING, VAT_REGISTERED, SHIPPING_ORE, FREE_SHIPPING_THRESHOLD_ORE } from "@/lib/config";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -25,7 +25,7 @@ export default async function ProductPage({ params }: Props) {
   return (
     <div className="wrap pdp">
       <div className="pdp-art">
-        <ProductArt kind={product.illustration} />
+        <ProductImage product={product} />
       </div>
       <div>
         <p className="breadcrumb">
@@ -35,7 +35,7 @@ export default async function ProductPage({ params }: Props) {
         <h1 style={{ marginTop: 16 }}>{product.name}</h1>
         <p className="muted" style={{ margin: 0 }}>{product.tagline} · {product.size}</p>
         <p className="pdp-price">{formatKr(product.priceOre)}</p>
-        <p className="muted small">Inkl. 15 % mva. Gratis frakt over 500 kr.</p>
+        <p className="muted small">{VAT_REGISTERED ? "Inkl. 15 % mva. " : ""}Gratis frakt over {formatKr(FREE_SHIPPING_THRESHOLD_ORE)}.</p>
         <p style={{ marginTop: 20 }}>{product.short}</p>
 
         <AddToCart slug={product.slug} />
@@ -73,7 +73,7 @@ export default async function ProductPage({ params }: Props) {
           <details>
             <summary>Frakt og retur</summary>
             <p>
-              Frakt koster 79 kr, og er gratis når du handler for 500 kr eller mer. Uåpnede varer kan returneres
+              Frakt koster {formatKr(SHIPPING_ORE)}, og er gratis når du handler for {formatKr(FREE_SHIPPING_THRESHOLD_ORE)} eller mer. Uåpnede varer kan returneres
               innen 14 dager. <Link href="/frakt-og-retur">Les mer</Link>.
             </p>
           </details>

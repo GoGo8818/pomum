@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useCart } from "@/components/CartProvider";
 import { getProduct, formatKr } from "@/lib/products";
-import { ProductArt } from "@/components/ProductArt";
+import { ProductImage } from "@/components/ProductImage";
 import { Totals } from "@/components/OrderSummary";
 
 export default function CartPage() {
@@ -29,7 +29,7 @@ export default function CartPage() {
         const p = getProduct(item.slug)!;
         return (
           <div className="cart-row" key={item.slug}>
-            <ProductArt kind={p.illustration} />
+            <ProductImage product={p} />
             <div>
               <Link href={`/produkter/${p.slug}`} style={{ textDecoration: "none", fontWeight: 500 }}>{p.name}</Link>
               <div className="muted small">{p.size} · {formatKr(p.priceOre)}</div>

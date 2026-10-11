@@ -1,29 +1,31 @@
 import Link from "next/link";
 import { products } from "@/lib/products";
 import { ProductCard } from "@/components/ProductCard";
-import { ProductArt } from "@/components/ProductArt";
-import { EXPECTED_SHIPPING } from "@/lib/config";
+import { ProductImage } from "@/components/ProductImage";
+import { SITE, fill } from "@/lib/config";
+
+// Tekstene redigeres i content/site.json (redigeringspanelet: /admin → Nettsiden → Forside).
+const dots = ["var(--pomegranate)", "var(--saffron)", "var(--pistachio)"];
 
 export default function Home() {
+  const home = SITE.home;
   return (
     <>
       <section className="hero">
         <div className="wrap hero-grid">
           <div>
-            <p className="eyebrow">Forhåndsbestilling er åpen</p>
-            <h1>Persiske råvarer for nordiske kjøkken.</h1>
-            <p className="lead">
-              Vi starter med to klassikere: hel safran og syrlig granateplemelasse. Bestill nå, så er du blant
-              de første som får dem. Vi sender {EXPECTED_SHIPPING}.
-            </p>
+            <p className="eyebrow">{fill(home.eyebrow)}</p>
+            <h1>{fill(home.title)}</h1>
+            <p className="lead">{fill(home.lead)}</p>
             <div className="hero-actions">
               <Link href="/produkter" className="btn">Se produktene</Link>
               <Link href="/om-oss" className="btn btn-ghost">Historien vår</Link>
             </div>
           </div>
           <div className="hero-art">
-            <ProductArt kind="saffron" />
-            <ProductArt kind="molasses" />
+            {products.slice(0, 2).map((p) => (
+              <ProductImage key={p.slug} product={p} />
+            ))}
           </div>
         </div>
       </section>
@@ -31,8 +33,8 @@ export default function Home() {
       <section className="section section-alt">
         <div className="wrap">
           <div className="section-head">
-            <h2 style={{ margin: 0 }}>Første utgave</h2>
-            <p className="muted" style={{ margin: 0 }}>Gratis frakt på bestillinger over 500 kr.</p>
+            <h2 style={{ margin: 0 }}>{fill(home.productsHeading)}</h2>
+            <p className="muted" style={{ margin: 0 }}>{fill(home.productsSubheading)}</p>
           </div>
           <div className="product-grid">
             {products.map((p) => (
@@ -42,27 +44,21 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section">
-        <div className="wrap">
-          <div className="values">
-            <div className="value">
-              <div className="value-dot" style={{ background: "var(--pomegranate)" }} />
-              <h3>Få ting, valgt med omhu</h3>
-              <p className="muted" style={{ margin: 0 }}>Vi selger bare det vi selv bruker hjemme, og vi vet hvor det kommer fra.</p>
-            </div>
-            <div className="value">
-              <div className="value-dot" style={{ background: "var(--saffron)" }} />
-              <h3>Ekte vare</h3>
-              <p className="muted" style={{ margin: 0 }}>Hele safrantråder, ikke pulver. Melasse uten tilsatt sukker.</p>
-            </div>
-            <div className="value">
-              <div className="value-dot" style={{ background: "var(--pistachio)" }} />
-              <h3>Laget for hverdagen</h3>
-              <p className="muted" style={{ margin: 0 }}>Enkle tips på hver produktside, så du vet hvordan du bruker det.</p>
+      {home.values?.length > 0 && (
+        <section className="section">
+          <div className="wrap">
+            <div className="values">
+              {home.values.map((v, i) => (
+                <div className="value" key={i}>
+                  <div className="value-dot" style={{ background: dots[i % dots.length] }} />
+                  <h3>{v.title}</h3>
+                  <p className="muted" style={{ margin: 0 }}>{v.text}</p>
+                </div>
+              ))}
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
     </>
   );
 }

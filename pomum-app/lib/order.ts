@@ -1,5 +1,5 @@
 import { getProduct, formatKr } from "./products";
-import { SHIPPING_ORE, FREE_SHIPPING_THRESHOLD_ORE } from "./config";
+import { SHIPPING_ORE, FREE_SHIPPING_THRESHOLD_ORE, VAT_REGISTERED } from "./config";
 
 export type CartItem = { slug: string; qty: number };
 
@@ -102,7 +102,7 @@ export function orderEmailHtml(opts: {
   <p>${esc(intro)}</p>
   <table style="width:100%;border-collapse:collapse;border-top:1px solid #ddd;border-bottom:1px solid #ddd">${rows}
   <tr><td style="padding:6px 0">Frakt</td><td style="padding:6px 0;text-align:right">${order.shippingOre ? formatKr(order.shippingOre) : "Gratis"}</td></tr>
-  <tr><td style="padding:6px 0"><strong>Totalt (inkl. mva)</strong></td><td style="padding:6px 0;text-align:right"><strong>${formatKr(order.totalOre)}</strong></td></tr></table>
+  <tr><td style="padding:6px 0"><strong>Totalt${VAT_REGISTERED ? " (inkl. mva)" : ""}</strong></td><td style="padding:6px 0;text-align:right"><strong>${formatKr(order.totalOre)}</strong></td></tr></table>
   <p><strong>Leveres til:</strong><br>${esc(customer.name)}<br>${esc(customer.address)}<br>${esc(customer.postcode)} ${esc(customer.city)}<br>${esc(customer.email)} · ${esc(customer.phone)}</p>
   <p style="color:#777;font-size:13px">Betaling: ${esc(method)} · Referanse: ${esc(reference)}</p>
 </div>`;

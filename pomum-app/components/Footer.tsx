@@ -7,7 +7,7 @@ export function Footer() {
     <footer className="footer">
       <div className="wrap footer-grid">
         <div>
-          <Logo />
+          <Logo light height={30} />
           <p className="footer-tag">Pure Yum.</p>
         </div>
         <div>

@@ -1,20 +1,21 @@
-// Butikkinnstillinger. Fyll inn selskapsinformasjonen før lansering —
-// e-handelsloven krever at navn, org.nr., adresse og e-post vises på nettsiden.
+// Butikkinnstillinger. Redigeres i content/site.json – enklest via redigeringspanelet på /admin.
+import site from "@/content/site.json";
 
-export const SHOP = {
-  name: "Pomum",
-  legalName: "[Selskapsnavn AS]", // TODO: fyll inn
-  orgNumber: "[000 000 000]", // TODO: fyll inn
-  address: "[Gateadresse, 0000 Oslo]", // TODO: fyll inn
-  email: "hei@pomum.no",
-  instagram: "https://instagram.com/pomum.no",
-};
+export const SITE = site;
 
-export const SHIPPING_ORE = 7900; // 79 kr
-export const FREE_SHIPPING_THRESHOLD_ORE = 50000; // gratis frakt fra 500 kr
+export const SHOP = site.company;
 
-export const EXPECTED_SHIPPING =
-  process.env.NEXT_PUBLIC_EXPECTED_SHIPPING || "november 2026";
+export const VAT_REGISTERED: boolean = !!site.shop.vatRegistered;
+
+export const SHIPPING_ORE = Math.round(Number(site.shop.shippingKr) * 100);
+export const FREE_SHIPPING_THRESHOLD_ORE = Math.round(Number(site.shop.freeShippingFromKr) * 100);
+
+export const EXPECTED_SHIPPING: string = site.shop.expectedShipping || "snart";
+
+/** Bytter ut {sending} i tekster med forventet sendedato. */
+export function fill(text: string): string {
+  return (text || "").replaceAll("{sending}", EXPECTED_SHIPPING);
+}
 
 export function siteUrl(fallback?: string): string {
   return (process.env.NEXT_PUBLIC_SITE_URL || fallback || "http://localhost:3000").replace(/\/$/, "");

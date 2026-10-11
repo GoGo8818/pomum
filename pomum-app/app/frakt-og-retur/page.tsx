@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { EXPECTED_SHIPPING, SHOP } from "@/lib/config";
+import { EXPECTED_SHIPPING, SHOP, SHIPPING_ORE, FREE_SHIPPING_THRESHOLD_ORE } from "@/lib/config";
+import { formatKr } from "@/lib/products";
 
 export const metadata: Metadata = { title: "Frakt og retur" };
 
@@ -12,8 +13,8 @@ export default function ShippingPage() {
       <h2>Frakt</h2>
       <ul>
         <li>Vi sender til hele Norge.</li>
-        <li>Frakt koster 79 kr.</li>
-        <li>Gratis frakt når du handler for 500 kr eller mer.</li>
+        <li>Frakt koster {formatKr(SHIPPING_ORE)}.</li>
+        <li>Gratis frakt når du handler for {formatKr(FREE_SHIPPING_THRESHOLD_ORE)} eller mer.</li>
         <li>Pakken sendes som brev eller pakke i postkassen når den får plass, ellers til nærmeste hentested.</li>
       </ul>
 

@@ -2,7 +2,7 @@
 
 import { getProduct, formatKr } from "@/lib/products";
 import { shippingFor } from "@/lib/order";
-import { FREE_SHIPPING_THRESHOLD_ORE } from "@/lib/config";
+import { FREE_SHIPPING_THRESHOLD_ORE, VAT_REGISTERED } from "@/lib/config";
 import type { CartItem } from "@/lib/order";
 
 export function totalsFor(items: CartItem[]) {
@@ -27,7 +27,7 @@ export function Totals({ items }: { items: CartItem[] }) {
       <div><span>Varer</span><span>{formatKr(subtotal)}</span></div>
       <div><span>Frakt</span><span>{shipping === 0 ? "Gratis" : formatKr(shipping)}</span></div>
       <div className="grand"><span>Totalt</span><span>{formatKr(total)}</span></div>
-      <div className="muted small">Inkl. mva.</div>
+      {VAT_REGISTERED && <div className="muted small">Inkl. mva.</div>}
     </div>
   );
 }

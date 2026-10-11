@@ -7,7 +7,7 @@ import { Footer } from "@/components/Footer";
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://pomum.no"),
   title: { default: "Pomum — Pure Yum", template: "%s · Pomum" },
-  description: "Persiske delikatesser for nordiske kjøkken. Forhåndsbestill safran og granateplemelasse.",
+  description: "Råvarer med karakter for nordiske kjøkken. Forhåndsbestill safran og granateplemelasse.",
   openGraph: { siteName: "Pomum", locale: "nb_NO", type: "website" },
 };
 
