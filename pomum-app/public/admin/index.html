@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="nb">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex" />
+  <title>Pomum · Redigering</title>
+  <link rel="icon" href="/icon.svg" />
+</head>
+<body>
+  <script>window.CMS_MANUAL_INIT = true;</script>
+  <script src="https://unpkg.com/decap-cms@3.16.2/dist/decap-cms.js"></script>
+  <script>
+    // Redigeringspanel for Pomum. Endringer lagres i GitHub (grenen under), og nettsiden
+    // bygges automatisk på nytt av Vercel. Det tar omtrent ett minutt før endringen vises.
+    var BRANCH = "main";
+
+    var productFields = [
+      { label: "Vis i butikken", name: "active", widget: "boolean", default: true },
+      { label: "Navn", name: "name", widget: "string" },
+      { label: "Nettadresse (kun små bokstaver, ingen mellomrom)", name: "slug", widget: "string",
+        hint: "Brukes i lenken, f.eks. pomum.no/produkter/safran. Ikke endre etter at butikken er live." },
+      { label: "Kort slagord", name: "tagline", widget: "string", required: false },
+      { label: "Størrelse", name: "size", widget: "string", hint: "F.eks. 1 g eller 250 ml" },
+      { label: "Pris (kr)", name: "price", widget: "number", value_type: "float", min: 1 },
+      { label: "Produktbilde", name: "image", widget: "image", required: false,
+        hint: "Kvadratisk bilde fungerer best. Uten bilde vises illustrasjonen." },
+      { label: "Illustrasjon (vises når det ikke er bilde)", name: "illustration", widget: "select",
+        options: [{ label: "Safranglass", value: "saffron" }, { label: "Flaske", value: "molasses" }], default: "saffron" },
+      { label: "Kort beskrivelse (øverst)", name: "short", widget: "text" },
+      { label: "Lang beskrivelse", name: "description", widget: "text",
+        hint: "La en tom linje stå mellom avsnitt." },
+      { label: "Slik bruker du den", name: "usage", widget: "list", field: { label: "Tips", name: "tip", widget: "string" }, required: false },
+      { label: "Ingredienser", name: "ingredients", widget: "string" },
+      { label: "Allergener", name: "allergens", widget: "string" },
+      { label: "Opprinnelsesland", name: "origin", widget: "string" },
+      { label: "Oppbevaring", name: "storage", widget: "string" }
+    ];
+
+    CMS.init({
+      config: {
+        load_config_file: false,
+        locale: "nb_no",
+        backend: {
+          name: "github",
+          repo: "GoGo8818/pomum",
+          branch: BRANCH,
+          base_url: window.location.origin,
+          auth_endpoint: "api/decap/auth",
+          commit_messages: { update: "Oppdatert {{collection}} via redigeringspanelet" }
+        },
+        media_folder: "pomum-app/public/bilder",
+        public_folder: "/bilder",
+        site_url: window.location.origin,
+        display_url: window.location.origin,
+        collections: [
+          {
+            name: "produkter",
+            label: "Produkter",
+            files: [{
+              name: "products",
+              label: "Alle produkter",
+              file: "pomum-app/content/products.json",
+              fields: [{ label: "Produkter", name: "products", widget: "list", summary: "{{fields.name}} · {{fields.price}} kr", fields: productFields }]
+            }]
+          },
+          {
+            name: "nettsiden",
+            label: "Nettsiden",
+            files: [{
+              name: "site",
+              label: "Tekster og innstillinger",
+              file: "pomum-app/content/site.json",
+              fields: [
+                { label: "Forside", name: "home", widget: "object", collapsed: false, fields: [
+                  { label: "Liten tekst over overskriften", name: "eyebrow", widget: "string" },
+                  { label: "Overskrift", name: "title", widget: "string" },
+                  { label: "Ingress", name: "lead", widget: "text", hint: "Skriv {sending} for å vise forventet sendedato." },
+                  { label: "Overskrift over produktene", name: "productsHeading", widget: "string" },
+                  { label: "Tekst ved siden av", name: "productsSubheading", widget: "string" },
+                  { label: "Tre punkter nederst", name: "values", widget: "list", fields: [
+                    { label: "Tittel", name: "title", widget: "string" },
+                    { label: "Tekst", name: "text", widget: "text" }
+                  ]}
+                ]},
+                { label: "Om oss", name: "about", widget: "object", fields: [
+                  { label: "Liten tekst over overskriften", name: "eyebrow", widget: "string" },
+                  { label: "Overskrift", name: "title", widget: "string" },
+                  { label: "Ingress", name: "lead", widget: "text" },
+                  { label: "Avsnitt", name: "sections", widget: "list", summary: "{{fields.heading}}", fields: [
+                    { label: "Overskrift", name: "heading", widget: "string" },
+                    { label: "Tekst", name: "body", widget: "text", hint: "Tom linje = nytt avsnitt. Start linjer med «- » for punktliste." }
+                  ]}
+                ]},
+                { label: "Butikk og frakt", name: "shop", widget: "object", fields: [
+                  { label: "Forventet sendedato", name: "expectedShipping", widget: "string", hint: "F.eks. november 2026" },
+                  { label: "Stripe øverst på siden", name: "banner", widget: "string", hint: "Skriv {sending} for å vise sendedatoen." },
+                  { label: "Fraktpris (kr)", name: "shippingKr", widget: "number", value_type: "float" },
+                  { label: "Gratis frakt fra (kr)", name: "freeShippingFromKr", widget: "number", value_type: "float" },
+                  { label: "Betaling er åpen", name: "paymentsOpen", widget: "boolean",
+                    hint: "Slå på når Stripe og/eller Vipps er satt opp. Når den er av, viser kassen meldingen under i stedet for betalingsknapper." },
+                  { label: "Melding i kassen når betaling er stengt", name: "paymentsClosedMessage", widget: "text" },
+                  { label: "Selskapet er mva-registrert", name: "vatRegistered", widget: "boolean",
+                    hint: "Slå på når SMILGO AS er registrert. Da vises «inkl. mva» på priser og kvitteringer." }
+                ]},
+                { label: "Firmaopplysninger", name: "company", widget: "object", fields: [
+                  { label: "Selskapsnavn", name: "legalName", widget: "string" },
+                  { label: "Org.nr.", name: "orgNumber", widget: "string" },
+                  { label: "Adresse", name: "address", widget: "string" },
+                  { label: "E-post", name: "email", widget: "string" },
+                  { label: "Instagram-lenke", name: "instagram", widget: "string" }
+                ]}
+              ]
+            }]
+          }
+        ]
+      }
+    });
+  </script>
+</body>
+</html>
