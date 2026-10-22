@@ -14,7 +14,8 @@ export function Footer() {
           <h4>Butikk</h4>
           <Link href="/produkter">Alle produkter</Link>
           <Link href="/produkter/safran">Safran</Link>
-          <Link href="/produkter/granateplemelasse">Granateplemelasse</Link>
+          <Link href="/produkter/granateplemelasse">Granateplesaus</Link>
+          <Link href="/produkter/pistasjsmor">Pistasjsmør</Link>
         </div>
         <div>
           <h4>Pomum</h4>
