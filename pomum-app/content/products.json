@@ -1,44 +1,62 @@
 {
   "products": [
     {
-      "slug": "safran",
-      "active": true,
-      "name": "Safran",
-      "tagline": "Gull, i tråder",
       "size": "1 g",
-      "price": 249,
-      "short": "Noen få tråder, og risen blir gyllen. Hele safrantråder med dyp farge og en duft som minner om honning og høy.",
-      "description": "Safran er verdens mest arbeidskrevende krydder. Hver blomst gir bare tre tråder, og alt plukkes for hånd tidlig om morgenen i den korte høstsesongen.\n\nVi har valgt hele tråder fremfor pulver, så du ser hva du får. Safranen kommer via vår samarbeidspartner Raya. Én boks holder lenge: 6–8 tråder er nok til en hel gryte.",
-      "ingredients": "100 % safran (Crocus sativus), hele tråder.",
-      "allergens": "Ingen kjente allergener.",
-      "origin": "Iran",
-      "storage": "Oppbevares tørt, mørkt og lufttett i romtemperatur.",
       "usage": [
         "Knus 6–8 tråder i en morter, trekk i 2 ss varmt vann i 10 minutter.",
         "Tilsett i ris, gryter, kaker eller varm melk."
       ],
+      "ingredients": "100 % safran (Crocus sativus), hele tråder.",
+      "active": true,
+      "origin": "Iran",
+      "price": 249,
+      "name": "Safran",
+      "slug": "safran",
+      "tagline": "Gull, i tråder",
+      "illustration": "saffron",
+      "allergens": "Ingen kjente allergener.",
       "image": "",
-      "illustration": "saffron"
+      "storage": "Oppbevares tørt, mørkt og lufttett i romtemperatur.",
+      "short": "Noen få tråder, og risen blir gyllen. Hele safrantråder med dyp farge og en duft som minner om honning og høy.",
+      "description": "Safran er verdens mest arbeidskrevende krydder. Hver blomst gir bare tre tråder, og alt plukkes for hånd tidlig om morgenen i den korte høstsesongen.\n\nVi har valgt hele tråder fremfor pulver, så du ser hva du får. Safranen kommer via vår samarbeidspartner Raya. Én boks holder lenge: 6–8 tråder er nok til en hel gryte."
     },
     {
-      "slug": "granateplemelasse",
-      "active": true,
-      "name": "Granateplemelasse",
-      "tagline": "Syrlig. Søt. Litt avhengighetsskapende.",
       "size": "250 ml",
-      "price": 169,
-      "short": "Granateple kokt ned til en tykk, rubinrød sirup. Den hemmelige ingrediensen kokkene ikke forteller om.",
-      "description": "Granateplemelasse er en klassiker i kjøkken rundt Middelhavet og Midtøsten. Smaken er syrlig først, så rund og fruktig, med en mørk sødme som minner om balsamico.\n\nUten tilsatt sukker, og kommer via vår samarbeidspartner Raya. Drypp den over burrata, halloumi, grillede grønnsaker eller vaniljeis.",
-      "ingredients": "Konsentrert granateplejuice.",
-      "allergens": "Ingen kjente allergener.",
-      "origin": "Iran",
-      "storage": "Oppbevares kjølig etter åpning.",
       "usage": [
         "Visp 1 ss melasse med 3 ss olivenolje, salt og pepper til en dressing.",
         "Pensle over kylling, laks eller halloumi rett før den er ferdig."
       ],
+      "ingredients": "Konsentrert granateplejuice.",
+      "active": true,
+      "origin": "Iran",
+      "price": 169,
+      "name": "Granateplemelasse",
+      "slug": "granateplemelasse",
+      "tagline": "Syrlig. Søt. Litt avhengighetsskapende.",
+      "illustration": "molasses",
+      "allergens": "Ingen kjente allergener.",
       "image": "",
-      "illustration": "molasses"
+      "storage": "Oppbevares kjølig etter åpning.",
+      "short": "Granateple kokt ned til en tykk, rubinrød sirup. Den hemmelige ingrediensen kokkene ikke forteller om.",
+      "description": "Granateplemelasse er en klassiker i kjøkken rundt Middelhavet og Midtøsten. Smaken er syrlig først, så rund og fruktig, med en mørk sødme som minner om balsamico.\n\nUten tilsatt sukker, og kommer via vår samarbeidspartner Raya. Drypp den over burrata, halloumi, grillede grønnsaker eller vaniljeis."
+    },
+    {
+      "size": "215 g",
+      "usage": [
+        "Smør på ristet brød med et dryss flaksalt.",
+        "Rør inn i yoghurt, eller bruk som fyll i kaker og croissanter."
+      ],
+      "ingredients": "100 % pistasjnøtter.",
+      "active": false,
+      "origin": "Iran",
+      "name": "Pistasjsmør",
+      "slug": "pistasjsmor",
+      "tagline": "Grønt gull på skje.",
+      "illustration": "saffron",
+      "allergens": "Inneholder pistasjnøtter.",
+      "storage": "Oppbevares tørt, kjølig og mørkt.",
+      "short": "Fløyelsmykt pistasjsmør med rund, dyp nøttesmak. For brødskiva en søndag morgen, eller rett fra skjeen når ingen ser.",
+      "description": "Laget av bare pistasjnøtter, malt til en glatt, grønn krem. Ingen sukker, ingen olje, ingenting annet. Sorten er en annen enn den du kjenner fra snacksposen, med en rundere og dypere smak.\n\nPistasjsmøret lages i Lyon av vår samarbeidspartner Raya, av pistasjnøtter fra Iran."
     }
   ]
 }
