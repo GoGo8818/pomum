@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import { SHOP, EXPECTED_SHIPPING, SHIPPING_ORE, FREE_SHIPPING_THRESHOLD_ORE } from "@/lib/config";
 import { formatKr } from "@/lib/products";
@@ -57,7 +58,7 @@ export default function TermsPage() {
       <p>
         Kjøper har 14 dagers angrerett fra varen er mottatt, jf. angrerettloven. Angreretten gjelder ikke forseglede
         matvarer der forseglingen er brutt etter levering, jf. angrerettloven § 22. Melding om bruk av angreretten
-        sendes til <a href={`mailto:${SHOP.email}`}>{SHOP.email}</a>. Kjøper kan bruke standard angrerettskjema, som vi sender på forespørsel, eller gi en annen utvetydig
+        sendes til <a href={`mailto:${SHOP.email}`}>{SHOP.email}</a>. Kjøper kan bruke standard <Link href="/angreskjema">angreskjema</Link>, eller gi en annen utvetydig
         erklæring om at kjøpet angres.
       </p>
       <p>
