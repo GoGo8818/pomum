@@ -32,7 +32,9 @@ export default function ShippingPage() {
       </p>
       <p>
         Send en e-post til <a href={`mailto:${SHOP.email}`}>{SHOP.email}</a> innen fristen, så får du
-        returadresse. Pengene tilbakebetales innen 14 dager etter at vi har mottatt varen.
+        returadresse. Du kan bruke <Link href="/angreskjema">angreskjemaet</Link>, men det holder også å skrive
+        at du vil angre kjøpet. Pengene tilbakebetales innen 14 dager etter at vi har fått beskjed, men vi kan
+        vente med tilbakebetalingen til vi har mottatt varen.
       </p>
 
       <h2>Skadet eller feil vare?</h2>
