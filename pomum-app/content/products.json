@@ -44,19 +44,19 @@
       "size": "215 g",
       "usage": [
         "Smør på ristet brød med et dryss flaksalt.",
-        "Rør inn i yoghurt, eller bruk som fyll i kaker og croissanter."
+        "Bruk i is, mousse og kaker, eller i pesto og pasta."
       ],
       "ingredients": "100 % pistasjnøtter.",
       "active": false,
-      "origin": "Iran",
+      "origin": "Frankrike (pistasjnøtter fra Iran)",
       "name": "Pistasjsmør",
       "slug": "pistasjsmor",
       "tagline": "Grønt gull på skje.",
       "illustration": "saffron",
-      "allergens": "Inneholder pistasjnøtter.",
-      "storage": "Oppbevares tørt, kjølig og mørkt.",
+      "allergens": "Inneholder pistasjnøtter. Kan inneholde spor av peanøtter, sesam og gluten.",
+      "storage": "Oppbevares mørkt, kjølig og tørt etter åpning. Legg plastfolie rett på pastaen for å holde den grønn.",
       "short": "Fløyelsmykt pistasjsmør med rund, dyp nøttesmak. For brødskiva en søndag morgen, eller rett fra skjeen når ingen ser.",
-      "description": "Laget av bare pistasjnøtter, malt til en glatt, grønn krem. Ingen sukker, ingen olje, ingenting annet. Sorten er en annen enn den du kjenner fra snacksposen, med en rundere og dypere smak.\n\nPistasjsmøret lages i Lyon av vår samarbeidspartner Raya, av pistasjnøtter fra Iran."
+      "description": "Laget av bare pistasjnøtter, malt til en glatt, grønn krem. Ingen sukker, ingen olje, ingenting annet. Sorten er en annen enn den du kjenner fra snacksposen, med en rundere og dypere smak.\n\nPistasjsmøret lages i Frankrike av vår samarbeidspartner Raya, av pistasjnøtter fra Iran."
     }
   ]
 }
