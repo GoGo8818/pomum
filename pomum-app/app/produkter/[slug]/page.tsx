@@ -73,8 +73,9 @@ export default async function ProductPage({ params }: Props) {
           <details>
             <summary>Frakt og retur</summary>
             <p>
-              Frakt koster {formatKr(SHIPPING_ORE)}, og er gratis når du handler for {formatKr(FREE_SHIPPING_THRESHOLD_ORE)} eller mer. Uåpnede varer kan returneres
-              innen 14 dager. <Link href="/frakt-og-retur">Les mer</Link>.
+              Frakt koster {formatKr(SHIPPING_ORE)}, og er gratis når du handler for {formatKr(FREE_SHIPPING_THRESHOLD_ORE)} eller mer. Uåpnede varer med ubrutt forsegling kan returneres
+              innen 14 dager etter at du har mottatt dem. Du betaler selv returfrakten. Åpnede varer tas ikke i retur.{" "}
+              <Link href="/frakt-og-retur">Les mer</Link>.
             </p>
           </details>
         </div>
