@@ -47,8 +47,9 @@
         "Bruk i is, mousse og kaker, eller i pesto og pasta."
       ],
       "ingredients": "100 % pistasjnøtter.",
-      "active": false,
+      "active": true,
       "origin": "Frankrike (pistasjnøtter fra Iran)",
+      "price": 289,
       "name": "Pistasjsmør",
       "slug": "pistasjsmor",
       "tagline": "Grønt gull på skje.",
